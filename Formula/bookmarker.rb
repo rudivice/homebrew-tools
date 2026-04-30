@@ -26,7 +26,9 @@ class Bookmarker < Formula
   head "git@github.com:rudivice/bookmarker.git", branch: "main"
 
   depends_on xcode: ["15.0", :build]
-  depends_on macos: ">= :ventura"
+  # Minimum macOS version (13/Ventura) is enforced by Package.swift's
+  # `platforms: [.macOS(.v13)]`. No `depends_on macos:` here — brew's parser
+  # rejects the `">= :ventura"` form on some installs.
 
   def install
     system "swift", "build", "-c", "release", "--disable-sandbox"
