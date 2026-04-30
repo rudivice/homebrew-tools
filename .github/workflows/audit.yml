@@ -1,0 +1,35 @@
+name: audit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: brew audit
+    runs-on: macos-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: List formulae
+        run: |
+          if [ -d Formula ] && [ -n "$(find Formula -name '*.rb' -print -quit)" ]; then
+            ls -la Formula/
+          else
+            echo "No formulae yet — skipping audit."
+            exit 0
+          fi
+
+      - name: brew audit --strict
+        run: |
+          if [ -n "$(find Formula -name '*.rb' -print -quit 2>/dev/null)" ]; then
+            brew audit --strict ./Formula/*.rb
+          fi
