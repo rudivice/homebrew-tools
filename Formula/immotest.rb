@@ -14,10 +14,10 @@ class Immotest < Formula
   homepage "https://github.com/rudivice/immotest"
   url "git@github.com:rudivice/immotest.git",
       using:    :git,
-      tag:      "v1.5.9",
-      revision: "79440deaf54a7039784eecaf666715773916607e"
+      tag:      "v1.5.10",
+      revision: "a6434323fe3f3ff6db07e18f2a5b18c509fab882"
   license "MIT"
-  version "1.5.9"
+  version "1.5.10"
   head "git@github.com:rudivice/immotest.git", using: :git, branch: "main"
 
   depends_on xcode: ["15.0", :build]
