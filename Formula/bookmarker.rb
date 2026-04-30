@@ -19,11 +19,12 @@ class Bookmarker < Formula
   desc "Audit and clean Safari bookmarks; feeds a personal knowledge graph"
   homepage "https://github.com/rudivice/bookmarker"
   url "git@github.com:rudivice/bookmarker.git",
+      using:    :git,
       tag:      "v1.1.0",
       revision: "061fd174ec322522e4eb9a942862787b462a97f2"
   license "Apache-2.0"
   version "1.1.0"
-  head "git@github.com:rudivice/bookmarker.git", branch: "main"
+  head "git@github.com:rudivice/bookmarker.git", using: :git, branch: "main"
 
   depends_on xcode: ["15.0", :build]
   # Minimum macOS version (13/Ventura) is enforced by Package.swift's
