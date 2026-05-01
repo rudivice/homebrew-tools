@@ -14,10 +14,10 @@ class BuildTool < Formula
   homepage "https://github.com/rudivice/swift-build-tool"
   url "git@github.com:rudivice/swift-build-tool.git",
       using:    :git,
-      tag:      "v1.0.0",
-      revision: "d0a08c9e0bb9cd020244836f6cdf03a76d5c89ce"
+      tag:      "v1.0.1",
+      revision: "0fdf7f1eb327df2cf1ef0be893acf5ef5fa7ff7d"
   license "MIT"
-  version "1.0.0"
+  version "1.0.1"
   head "git@github.com:rudivice/swift-build-tool.git", using: :git, branch: "main"
 
   depends_on xcode: ["15.0", :build]
