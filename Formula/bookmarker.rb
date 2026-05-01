@@ -20,10 +20,10 @@ class Bookmarker < Formula
   homepage "https://github.com/rudivice/bookmarker"
   url "git@github.com:rudivice/bookmarker.git",
       using:    :git,
-      tag:      "v1.1.0",
-      revision: "061fd174ec322522e4eb9a942862787b462a97f2"
+      tag:      "v1.2.0",
+      revision: "6c6c9eaca6a64b936b08e5e6988264ebddb34b85"
   license "Apache-2.0"
-  version "1.1.0"
+  version "1.2.0"
   head "git@github.com:rudivice/bookmarker.git", using: :git, branch: "main"
 
   depends_on xcode: ["15.0", :build]
