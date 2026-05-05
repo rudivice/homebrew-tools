@@ -14,7 +14,7 @@ class ShoetrackerFaq < Formula
   url "git@github.com:rudivice/ShoeTracker.git",
       using:    :git,
       tag:      "shoetracker-faq-v1.0.0",
-      revision: "408a71b"
+      revision: "408a71b086fc385617f13658b835e67914a676d7"
   license "MIT"
   version "1.0.0"
   head "git@github.com:rudivice/ShoeTracker.git", using: :git, branch: "main"
