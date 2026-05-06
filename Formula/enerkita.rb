@@ -10,7 +10,7 @@ class Enerkita < Formula
   url "git@github.com:rudivice/enerkita-cli.git",
       using:    :git,
       tag:      "v1.0.0",
-      revision: "04d297437143096ff348d5c65837749070994823"
+      revision: "4bcc52b5579fcf143eeb0547d09a43ead5b34a29"
   license "Apache-2.0"
   version "1.0.0"
   head "git@github.com:rudivice/enerkita-cli.git", using: :git, branch: "master"
