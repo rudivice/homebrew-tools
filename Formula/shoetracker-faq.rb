@@ -19,6 +19,8 @@ class ShoetrackerFaq < Formula
   version "1.0.0"
   head "git@github.com:rudivice/ShoeTracker.git", using: :git, branch: "main"
 
+  deprecate! date: "2026-05-14", because: "renamed to `shoetracker`. Run `brew install rudivice/tools/shoetracker`."
+
   depends_on xcode: ["16.0", :build]
 
   def install
