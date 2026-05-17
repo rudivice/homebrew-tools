@@ -14,13 +14,13 @@ class Shoetracker < Formula
   homepage "https://github.com/rudivice/ShoeTracker"
   url "git@github.com:rudivice/ShoeTracker.git",
       using:    :git,
-      tag:      "shoetracker-v1.1.0",
-      revision: "da4990b89a411854520ee8081159c582cf0f93b8"
+      tag:      "shoetracker-v1.2.0",
+      revision: "b4a7d2adfc718b1edeaa5ae25b5511d86fb01902"
   license "MIT"
-  version "1.1.0"
+  version "1.2.0"
   head "git@github.com:rudivice/ShoeTracker.git", using: :git, branch: "main"
 
-  depends_on xcode: ["16.0", :build]
+  depends_on xcode: ["26.0", :build]
 
   def install
     cd "tools/shoetracker" do
@@ -39,6 +39,8 @@ class Shoetracker < Formula
       Subcommand groups:
         shoetracker faq <push|pull|show|diff|stats|deploy|hugo>
         shoetracker config <keys|get|set|pull|push>
+        shoetracker catalog <list|show|add|import|pull|push|remove>
+        shoetracker schema <plan|verify>
         shoetracker doctor
 
       A `st` symlink is installed as a 2-letter alias:
