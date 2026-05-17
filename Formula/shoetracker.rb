@@ -14,10 +14,10 @@ class Shoetracker < Formula
   homepage "https://github.com/rudivice/ShoeTracker"
   url "git@github.com:rudivice/ShoeTracker.git",
       using:    :git,
-      tag:      "shoetracker-v1.2.0",
-      revision: "b4a7d2adfc718b1edeaa5ae25b5511d86fb01902"
+      tag:      "shoetracker-v1.2.1",
+      revision: "a42cd220cee0ed565e58f2f73534f02cd30cd90b"
   license "MIT"
-  version "1.2.0"
+  version "1.2.1"
   head "git@github.com:rudivice/ShoeTracker.git", using: :git, branch: "main"
 
   depends_on xcode: ["26.0", :build]
