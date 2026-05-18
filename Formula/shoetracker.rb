@@ -14,10 +14,10 @@ class Shoetracker < Formula
   homepage "https://github.com/rudivice/ShoeTracker"
   url "git@github.com:rudivice/ShoeTracker.git",
       using:    :git,
-      tag:      "shoetracker-v1.2.1",
-      revision: "a42cd220cee0ed565e58f2f73534f02cd30cd90b"
+      tag:      "shoetracker-v1.3.0",
+      revision: "c02ff724bcf106efacfb3e0e6065d8083ef3e354"
   license "MIT"
-  version "1.2.1"
+  version "1.3.0"
   head "git@github.com:rudivice/ShoeTracker.git", using: :git, branch: "main"
 
   depends_on xcode: ["26.0", :build]
@@ -39,9 +39,16 @@ class Shoetracker < Formula
       Subcommand groups:
         shoetracker faq <push|pull|show|diff|stats|deploy|hugo>
         shoetracker config <keys|get|set|pull|push>
-        shoetracker catalog <list|show|add|import|pull|push|remove>
+        shoetracker catalog <list|show|search|add|import|pull|push|remove>
         shoetracker schema <plan|verify>
         shoetracker doctor
+
+      New in 1.3.0:
+        shoetracker catalog search "pegasus 41"                    # ranked free-text
+        shoetracker catalog search 4549846123459 --exact           # EAN lookup
+        shoetracker catalog search nimbus --source production      # live read-only
+        shoetracker catalog add -i                                 # interactive wizard
+        shoetracker catalog add --brand brooks ...                 # case-insensitive normalize
 
       A `st` symlink is installed as a 2-letter alias:
         st config keys
