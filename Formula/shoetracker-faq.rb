@@ -19,7 +19,10 @@ class ShoetrackerFaq < Formula
   version "1.0.0"
   head "git@github.com:rudivice/ShoeTracker.git", using: :git, branch: "main"
 
-  deprecate! date: "2026-05-14", because: "renamed to `shoetracker`. Run `brew install rudivice/tools/shoetracker`."
+  deprecate! date: "2026-05-18",
+             because: "superseded by the unified `shoetracker` CLI (1.3.0+) " \
+                      "which handles FAQ, AppConfig, catalog, schema, and doctor. " \
+                      "Migrate via `brew uninstall shoetracker-faq && brew install rudivice/tools/shoetracker`."
 
   depends_on xcode: ["16.0", :build]
 
@@ -32,18 +35,24 @@ class ShoetrackerFaq < Formula
 
   def caveats
     <<~EOS
-      Run from the ShoeTracker project root:
-        cd ~/Development/ShoeTracker
+      ⚠️  DEPRECATED — replaced by the unified `shoetracker` CLI.
 
-      Commands:
-        shoetracker-faq show --locale de       # Show local entries
-        shoetracker-faq push                   # Push to CloudKit
-        shoetracker-faq push --env production  # Push to production
-        shoetracker-faq deploy                 # Push + Hugo + rsync
-        shoetracker-faq hugo --build --deploy  # Hugo only (no CloudKit)
-        shoetracker-faq pull                   # Pull from CloudKit
-        shoetracker-faq diff                   # Compare local vs remote
-        shoetracker-faq stats                  # Entry counts
+      Migrate now:
+        brew uninstall shoetracker-faq
+        brew install rudivice/tools/shoetracker
+
+      Command mapping:
+        shoetracker-faq <cmd>   →  shoetracker faq <cmd>
+        e.g.
+        shoetracker-faq push    →  shoetracker faq push
+        shoetracker-faq deploy  →  shoetracker faq deploy --env production
+        shoetracker-faq diff    →  shoetracker faq diff
+
+      Plus everything else the new CLI adds:
+        shoetracker config <…>   # AppConfig values
+        shoetracker catalog <…>  # Shoe catalog (search, add wizard, …)
+        shoetracker schema <…>   # CloudKit schema plan/verify
+        shoetracker doctor       # Environment diagnostics
 
       Requires:
         - Server-to-server key: ~/.config/shoetracker/cloudkit-key.pem
