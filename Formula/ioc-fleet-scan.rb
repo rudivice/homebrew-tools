@@ -10,10 +10,10 @@ class IocFleetScan < Formula
   homepage "https://github.com/rudivice/ioc-fleet-scan"
   url "git@github.com:rudivice/ioc-fleet-scan.git",
       using:    :git,
-      tag:      "v1.0.0",
-      revision: "7c9b4afdd4567e71256062ce06e95579e843a04a"
+      tag:      "v1.0.1",
+      revision: "31be037bde85d5592f9ddd98d85d4ca55792bd64"
   license "MIT"
-  version "1.0.0"
+  version "1.0.1"
   head "git@github.com:rudivice/ioc-fleet-scan.git", using: :git, branch: "main"
 
   depends_on xcode: ["13.0", :build]
@@ -26,6 +26,7 @@ class IocFleetScan < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/ioc-scan --version")
     assert_match "Usage:", shell_output("#{bin}/ioc-scan --help")
   end
 end
