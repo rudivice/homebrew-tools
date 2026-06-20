@@ -12,9 +12,9 @@ class Afmcli < Formula
   homepage "https://github.com/rudivice/afmcli"
   url "git@github.com:rudivice/afmcli.git",
       using:    :git,
-      tag:      "v0.1.0",
-      revision: "e430142d84e1502bc92da5c188a47c5972722407"
-  version "0.1.0"
+      tag:      "v0.1.1",
+      revision: "25f9c65e404ee006f8a806eaf389562c6e90aa04"
+  version "0.1.1"
   head "git@github.com:rudivice/afmcli.git", using: :git, branch: "master"
 
   depends_on xcode: ["16.0", :build]
@@ -25,7 +25,7 @@ class Afmcli < Formula
   end
 
   test do
-    assert_match "0.1.0", shell_output("#{bin}/afmcli --version")
+    assert_match version.to_s, shell_output("#{bin}/afmcli --version")
     # afmcli doctor exits 2 unless Apple Intelligence is enabled — not asserted in the brew test box.
   end
 end
