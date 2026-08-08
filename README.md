@@ -17,6 +17,7 @@ brew tap rudivice/tools git@github.com:rudivice/homebrew-tools.git
 | Formula | Status | Description |
 |---|---|---|
 | `bookmarker` | pending v1.1.0 tag | Audit and clean Safari bookmarks; feeds a personal knowledge graph. |
+| `cb-app-reviews` | v0.1.0 | Fetch App Store + Google Play reviews for the 9 CB apps, translate to German (DeepL), store in SQLite, post new ones to Slack; also `--query` the DB. |
 | `enerkita` | planned | _(per-tool change in [enerkita](https://github.com/rudivice/enerkita))_ |
 | `cb-emailcheck` | planned | _(per-tool change in its repo)_ |
 | `cb-mapp-parser` | planned | _(per-tool change in its repo)_ |
