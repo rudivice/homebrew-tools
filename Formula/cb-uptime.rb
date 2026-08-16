@@ -70,7 +70,7 @@ class CbUptime < Formula
   url "https://github.com/rudivice/cb-uptime/releases/download/v0.1.4/cb-uptime-0.1.4-arm64.tar.gz",
       using: GitHubPrivateRepositoryReleaseDownloadStrategy
   version "0.1.4"
-  sha256 "ba2ddf6ed3db5879ebfc499c0455c13ddcdd2eb4918f3257bcf627a392f849e1"
+  sha256 "8584ea8e8682129549a2ac34ccacee5a39bb58083a87c527fff562ca754cba8a"
 
   depends_on arch: :arm64
   depends_on macos: :sonoma
