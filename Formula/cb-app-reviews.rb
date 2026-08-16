@@ -67,10 +67,10 @@ end
 class CbAppReviews < Formula
   desc "Fetch, translate, store and Slack-post reviews for the CB apps"
   homepage "https://github.com/rudivice/cb-app-reviews"
-  url "https://github.com/rudivice/cb-app-reviews/releases/download/v0.7.4/cb-app-reviews-0.7.4-arm64.tar.gz",
+  url "https://github.com/rudivice/cb-app-reviews/releases/download/v0.7.5/cb-app-reviews-0.7.5-arm64.tar.gz",
       using: GitHubPrivateRepositoryReleaseDownloadStrategy
-  version "0.7.4"
-  sha256 "894cb6f094b205f1c46d6b1166607d56216ca631d398b6c6a4d0d6fc4d61fe5b"
+  version "0.7.5"
+  sha256 "151ce0e0cb6df27a3c9b1a02a5c358871539652049b8c8786bdfdc3cf1d20e36"
 
   depends_on arch: :arm64
   depends_on macos: :sonoma
