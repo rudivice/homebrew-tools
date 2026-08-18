@@ -68,18 +68,19 @@ end
 class CbUptime < Formula
   desc "Synthetic availability monitoring for the Corporate Benefits platforms"
   homepage "https://github.com/rudivice/cb-uptime"
-  url "https://github.com/rudivice/cb-uptime/releases/download/v0.2.0/cb-uptime-0.2.0-arm64.tar.gz",
+  url "https://github.com/rudivice/cb-uptime/releases/download/v0.2.1/cb-uptime-0.2.1-arm64.tar.gz",
       using: GitHubPrivateRepositoryReleaseDownloadStrategy
-  version "0.2.0"
-  sha256 "69914c6f8949b3743702830264fd9aa8995d34fbb044dd1df5370973ca295020"
+  version "0.2.1"
+  sha256 "3da389e8b306faad20144223418c5a786d5212fd1e0ca135cdf29ac97afbafc1"
 
   depends_on arch: :arm64
   depends_on macos: :sonoma
 
   def install
-    # Binary only — unlike cb-app-reviews there is no contract/ to ship. The platform inventory is
-    # data, not part of the distribution, and lives in the user's Application Support directory.
+    # Binary and its manual. The platform inventory is data, not part of the distribution, and
+    # lives in the user's Application Support directory.
     bin.install "cb-uptime"
+    man1.install "cb-uptime.1"
   end
 
   def caveats
@@ -97,13 +98,14 @@ class CbUptime < Formula
       Credentials for the authenticated chain come from the environment first, then 1Password.
       Headless: export OP_SERVICE_ACCOUNT_TOKEN so op needs no Touch ID.
 
-      Usage:
+      Usage (man cb-uptime for the full reference):
         cb-uptime import <export.csv>              # seed the platform inventory
         cb-uptime check                            # one run: fixed targets + rotating sample
         cb-uptime probe https://example.com        # one URL, full timing waterfall
         cb-uptime status                           # inventory, rotation, expiring certificates
         cb-uptime notices                          # what the pages behind `degraded` say
         cb-uptime backup                           # consistent snapshot + retention
+        cb-uptime credits                          # author, build identity, license
     EOS
   end
 
