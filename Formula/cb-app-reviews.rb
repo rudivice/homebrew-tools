@@ -67,10 +67,10 @@ end
 class CbAppReviews < Formula
   desc "Fetch, translate, store and Slack-post reviews for the CB apps"
   homepage "https://github.com/rudivice/cb-app-reviews"
-  url "https://github.com/rudivice/cb-app-reviews/releases/download/v0.8.1/cb-app-reviews-0.8.1-arm64.tar.gz",
+  url "https://github.com/rudivice/cb-app-reviews/releases/download/v0.8.2/cb-app-reviews-0.8.2-arm64.tar.gz",
       using: GitHubPrivateRepositoryReleaseDownloadStrategy
-  version "0.8.1"
-  sha256 "a5d889ba794608e0d866e941fe08920402b762f19449e4e349133477bc7d3903"
+  version "0.8.2"
+  sha256 "d812e614801fc9a5d93f33e9c3e4d4f4ca8ec6e058c55233dfad7c32572e326e"
 
   depends_on arch: :arm64
   depends_on macos: :sonoma
@@ -79,6 +79,9 @@ class CbAppReviews < Formula
     bin.install "cb-app-reviews"
     # Shared contract (config.json, schema.sql) — found at runtime via <bin>/../share/cb-app-reviews/.
     pkgshare.install Dir["contract/*"]
+    # Man page, generated from the ArgumentParser definition at release time. Guarded so a
+    # rollback to a tarball from before 0.8.2 still installs.
+    man1.install "man/cb-app-reviews.1" if File.exist?("man/cb-app-reviews.1")
   end
 
   def caveats
@@ -99,5 +102,6 @@ class CbAppReviews < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/cb-app-reviews --version")
+    assert_predicate man1/"cb-app-reviews.1", :exist?
   end
 end
