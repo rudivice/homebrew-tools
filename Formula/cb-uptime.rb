@@ -55,8 +55,9 @@ class GitHubPrivateRepositoryReleaseDownloadStrategy < CurlDownloadStrategy
   end
 end
 
-# cb-uptime — pull App Store & Google Play reviews for the CB apps, translate to
-# German (DeepL), store in SQLite, and post new ones to Slack. Also queries the DB.
+# cb-uptime — synthetic availability monitoring for the Corporate Benefits customer
+# portals: probe on a rotation, record the timing waterfall and certificate expiry in
+# SQLite, and report the state to Slack.
 #
 # Distributed as a prebuilt, Developer-ID-signed + notarized arm64 binary (no build, no
 # Xcode). Source (private): https://github.com/rudivice/cb-uptime
@@ -67,10 +68,10 @@ end
 class CbUptime < Formula
   desc "Synthetic availability monitoring for the Corporate Benefits platforms"
   homepage "https://github.com/rudivice/cb-uptime"
-  url "https://github.com/rudivice/cb-uptime/releases/download/v0.1.7/cb-uptime-0.1.7-arm64.tar.gz",
+  url "https://github.com/rudivice/cb-uptime/releases/download/v0.2.0/cb-uptime-0.2.0-arm64.tar.gz",
       using: GitHubPrivateRepositoryReleaseDownloadStrategy
-  version "0.1.7"
-  sha256 "16b8773ff8b6121d4fec15edadbb3a875b051451abb0dd62687aed6d564713f2"
+  version "0.2.0"
+  sha256 "69914c6f8949b3743702830264fd9aa8995d34fbb044dd1df5370973ca295020"
 
   depends_on arch: :arm64
   depends_on macos: :sonoma
@@ -89,6 +90,10 @@ class CbUptime < Formula
       The store lives at ~/Library/Application Support/cb-uptime/cb-uptime.sqlite and is
       created on first use. Seed the inventory from a platform export before the first run.
 
+      `cb-uptime notices --classify` reads the pages behind `degraded` with the on-device
+      model and needs macOS 26. Every other command runs on Sonoma and later; that one
+      says so rather than failing obscurely.
+
       Credentials for the authenticated chain come from the environment first, then 1Password.
       Headless: export OP_SERVICE_ACCOUNT_TOKEN so op needs no Touch ID.
 
@@ -97,6 +102,7 @@ class CbUptime < Formula
         cb-uptime check                            # one run: fixed targets + rotating sample
         cb-uptime probe https://example.com        # one URL, full timing waterfall
         cb-uptime status                           # inventory, rotation, expiring certificates
+        cb-uptime notices                          # what the pages behind `degraded` say
         cb-uptime backup                           # consistent snapshot + retention
     EOS
   end
