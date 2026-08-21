@@ -68,10 +68,10 @@ end
 class CbUptime < Formula
   desc "Synthetic availability monitoring for the Corporate Benefits platforms"
   homepage "https://github.com/rudivice/cb-uptime"
-  url "https://github.com/rudivice/cb-uptime/releases/download/v0.3.0/cb-uptime-0.3.0-arm64.tar.gz",
+  url "https://github.com/rudivice/cb-uptime/releases/download/v0.3.1/cb-uptime-0.3.1-arm64.tar.gz",
       using: GitHubPrivateRepositoryReleaseDownloadStrategy
-  version "0.3.0"
-  sha256 "9d45fdfb8bca0db56b03433d4f4fd47f734358f666fd19d02615163772f65f93"
+  version "0.3.1"
+  sha256 "2a76104ab11238a513ca7c049e9f3f05c3dad86f3e6057398e27aac493456752"
 
   depends_on arch: :arm64
   depends_on macos: :sonoma
