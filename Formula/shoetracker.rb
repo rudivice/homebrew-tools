@@ -14,10 +14,10 @@ class Shoetracker < Formula
   homepage "https://github.com/rudivice/ShoeTracker"
   url "git@github.com:rudivice/ShoeTracker.git",
       using:    :git,
-      tag:      "shoetracker-v1.3.1",
-      revision: "3749e23bdcc696c8b8b3146f960def830b1c9e70"
+      tag:      "shoetracker-v1.4.0",
+      revision: "bda424256c8059ede524f05181b403f5ce394632"
   license "MIT"
-  version "1.3.1"
+  version "1.4.0"
   head "git@github.com:rudivice/ShoeTracker.git", using: :git, branch: "main"
 
   depends_on xcode: ["26.0", :build]
@@ -40,8 +40,14 @@ class Shoetracker < Formula
         shoetracker faq <push|pull|show|diff|stats|deploy|hugo>
         shoetracker config <keys|get|set|pull|push>
         shoetracker catalog <list|show|search|add|import|pull|push|remove>
-        shoetracker schema <plan|verify>
+        shoetracker schema <add-field|add-record-type|fetch|diff|env-diff>
         shoetracker doctor
+
+      New in 1.4.0:
+        shoetracker schema env-diff     # Dev vs. Prod, all containers incl. private CD_* types
+                                        # exit 1 = deploy pending, 2 = drift, 3 = error
+        Needs a CloudKit management token: $CLOUDKIT_MANAGEMENT_TOKEN or 1Password
+        (cli-devops / shoetracker-cli-mgmt-token).
 
       New in 1.3.0:
         shoetracker catalog search "pegasus 41"                    # ranked free-text
