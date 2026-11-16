@@ -9,13 +9,13 @@
 # back to deterministic no-LLM output (still exits 0, ok: false).
 class Afmcli < Formula
   desc "Apple Foundation Models CLI for Jenkins/CI workflows on macOS 26 Mac agents"
-  homepage "https://github.com/rudivice/afmcli"
-  url "git@github.com:rudivice/afmcli.git",
+  homepage "https://github.com/smartmobilefactory/afmcli"
+  url "git@github.com:smartmobilefactory/afmcli.git",
       using:    :git,
       tag:      "v0.1.1",
       revision: "25f9c65e404ee006f8a806eaf389562c6e90aa04"
   version "0.1.1"
-  head "git@github.com:rudivice/afmcli.git", using: :git, branch: "master"
+  head "git@github.com:smartmobilefactory/afmcli.git", using: :git, branch: "master"
 
   depends_on xcode: ["16.0", :build]
 
